@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Your Name">
+    <meta name="description" content="A webpage displaying various Linux commands and their usage">
+    <title>Linux Commands Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            background-image: url('https://makepix.b-cdn.net/makepix_39d56f99-82b9-4f92-b248-ef818646aa17/linux-logo-3636376b_0_l.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding-bottom: 60px; /* Ensure there's space for the footer */
+        }
+
+        header {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        .commands-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .command-btn {
+            background-color: #444;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .command-btn:hover {
+            background-color: #555;
+        }
+
+        .command-details {
+            display: none;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+
+        footer {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .back-btn {
+            background-color: #444;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #555;
+        }
+    </style>
+    <script>
+        function showDetails(commandId) {
+            const allDetails = document.querySelectorAll('.command-details');
+            allDetails.forEach(function(details) {
+                details.style.display = 'none';
+            });
+
+            const commandDetails = document.getElementById(commandId);
+            commandDetails.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Linux Commands Guide</h1>
+    <p>Learn the essential Linux commands and their usage</p>
+</header>
+
+<!-- Command buttons -->
+<div class="commands-buttons">
+    <button class="command-btn" onclick="showDetails('find-details')">find</button>
+    <button class="command-btn" onclick="showDetails('tar-details')">tar</button>
+    <button class="command-btn" onclick="showDetails('gzip-details')">gzip</button>
+    <button class="command-btn" onclick="showDetails('gunzip-details')">gunzip</button>
+    <button class="command-btn" onclick="showDetails('zip-details')">zip</button>
+    <button class="command-btn" onclick="showDetails('chmod-details')">chmod</button>
+    <button class="command-btn" onclick="showDetails('chown-details')">chown</button>
+    <button class="command-btn" onclick="showDetails('chgrp-details')">chgrp</button>
+    <button class="command-btn" onclick="showDetails('ps-details')">ps</button>
+</div>
+
+<!-- Command details sections -->
+<div id="find-details" class="command-details">
+    <h2>find Command</h2>
+    <p><strong>Description:</strong> The `find` command is used to search for files in a directory hierarchy.The find command is a powerful tool in Linux used to search for files and directories within a specified directory hierarchy. It can locate files based on a variety of criteria, such as name, type, size, permissions, ownership, modification date, and more. Additionally, find can execute commands on the files it locates, providing a versatile way to manage and manipulate files</p>
+    <p><strong>Usage:</strong> The find command is one of the most powerful tools in Linux for searching files and directories in a directory hierarchy based on various criteria such as name, type, size, modification date, and more.</p>
+    <p><strong>Example:</strong></p>
+    <code class="example">find /home/user -name "*.txt"</code>
+    <p>This will search for all `.txt` files in the `/home/user` directory and its subdirectories.</p>
+    <img src="https://phoenixnap.com/kb/wp-content/uploads/2024/08/sudo-find-less-current-user-terminal-output.png" alt="sudo find command output">
+
+    <button class="back-btn" onclick="showDetails('')">Back</button>
+</div>
+
+<div id="tar-details" class="command-details">
+    <h2>tar Command</h2>
+    <p><strong>Description:</strong> The `tar` command is used to create, extract, and manipulate archive files.The tar command is one of the most widely used utilities in Linux for creating, extracting, and managing archive files. It can collect multiple files and directories into a single file, known as a tarball, which can be compressed to save space. It is commonly used for backups, software distribution, and file packaging.</p>
+    <p><strong>Usage:</strong> The tar command is used in Linux to create, manipulate, and extract archive files. It is commonly used for backup and compression purposes. The name "tar" stands for tape archive, but it is now used for managing archive files of various types, especially .tar, .tar.gz, .tar.bz2, and other formats.</p>
+    <p><strong>Example:</strong></p>
+    <code class="example">tar -cvf archive.tar /path/to/directory</code>
+    <p>This creates a `.tar` archive from the specified directory.</p>
+    <img src="tar.png" alt="gzip command example">
+
+    <button class="back-btn" onclick="showDetails('')">Back</button>
+</div>
+
+<div id="gzip-details" class="command-details">
+    <h2>gzip Command</h2>
+    <p><strong>Description:</strong> The `gzip` command is used to compress files using the GNU compression algorithm. It reduces file size for storage or transfer while maintaining the original file integrity. The compressed file typically has a .gz extension.</p>
+    <p><strong>Usage:</strong> The gzip command is used in Linux to compress files, reducing their size to save disk space or to facilitate faster transfers. It stands for GNU zip, and it is commonly used to compress single files (not directories). Files compressed with gzip typically have a .gz extension.</p>
+    <p><strong>Example:</strong></p>
+    <code class="example">gzip filename.txt</code>
+    <p>This compresses `filename.txt` into a `.gz` file.</p>
+    <img src="gzip.png" alt="gzip command example">
+    <button class="back-btn" onclick="showDetails('')">Back</button>
+</div>
+
+<div id="gunzip-details" class="command-details">
+    <h2>gunzip Command</h2>
+    <p><strong>Description:</strong> The `gunzip` command is used to decompress `.gz` files.</p>
+    <p><strong>Usage:</strong>The gunzip command is used to decompress files that were compressed with the gzip command. It is the inverse of the gzip command and is commonly used to restore .gz files back to their original, uncompressed state.</p>
+    <p><strong>Example:</strong></p>
+    <code class="example">gunzip filename.txt.gz</code>
+    <p>This restores `filename.txt.gz` back to its original form.</p>
+    <img src="gunzip.png" alt="gunzip command example">
+    <button class="back-btn" onclick="showDetails('')">Back</button>
+</div>
+
+<div id="zip-details" class="command-details">
+    <h2>zip Command</h2>
+    <p><strong>Description:</strong> The `zip` command is used to package files into a zip archive. It is a widely used utility for bundling and compressing files to save storage space and make file sharing more efficient.</p>
+    <p><strong>Usage:</strong> The zip command is used to compress files and directories into a .zip archive. It is one of the most common methods for file compression and packaging, making it easier to transfer and store multiple files as a single compressed file.</p>
+    <p><strong>Example:</strong></p>
+    <code class="example">zip archive.zip file1 file2</code>
+    <p>This creates a `archive.zip` file containing `file1` and `file2`.</p>
+    <img src="zip.png" alt="zip command example">
+    <button class="back-btn" onclick="showDetails('')">Back</button>
+</div>
+
+<div id="chmod-details" class="command-details">
+    <h2>chmod Command</h2>
+    <p><strong>Description:</strong> The `chmod` command is used to change file permissions in Linux.File permissions determine who can read, write, or execute a file or directory. This command allows you to control access to files and directories.</p>
+    <p><strong>Usage:</strong> The chmod (change mode) command in Linux is used to change the permissions of a file or directory. Permissions define who can read, write, or execute a file. It allows the system administrator or the owner of a file to grant or restrict access to users.</p>
+    <p><strong>Example:</strong></p>
+    <code class="example">chmod 755 script.sh</code>
+    <p>This sets the permissions of `script.sh` to be readable and executable by everyone, but only writable by the owner.</p>
+    <img src="chmod.png" alt="chmod command example">
+    <button class="back-btn" onclick="showDetails('')">Back</button>
+</div>
+
+<div id="chown-details" class="command-details">
+    <h2>chown Command</h2>
+    <p><strong>Description:</strong> The `chown` command is used to change the owner and group of files or directories. It allows administrators or authorized users to assign files to specific users and groups, ensuring proper access control and resource management.</p>
+    <p><strong>Usage:</strong> The chown (change owner) command in Linux is used to change the owner and/or group associated with a file or directory. By using this command, you can transfer file ownership from one user to another or change the group associated with the file.</p>
+    <p><strong>Example:</strong></p>
+    <code class="example">chown user:group filename.txt</code>
+    <p>This changes the ownership of `filename.txt` to `user` and the group to `group`.</p>
+    <img src="chown.png" alt="chown command example">
+    <button class="back-btn" onclick="showDetails('')">Back</button>
+</div>
+
+<div id="chgrp-details" class="command-details">
+    <h2>chgrp Command</h2>
+    <p><strong>Description:</strong> The `chgrp` command is used to change the group ownership of a file or directory. It allows administrators or authorized users to assign a file or directory to a specific group, enabling effective resource sharing and access control.</p>
+    <p><strong>Usage:</strong> The chgrp (change group) command in Linux is used to change the group ownership of a file or directory. This allows you to assign a file or directory to a different group. It does not affect the user ownership, only the group associated with the file.</p>
+    <p><strong>Example:</strong></p>
+    <code class="example">chgrp developers filename.txt</code>
+    <p>This changes the group ownership of `filename.txt` to `developers`.</p>
+    <img src="chgrp.png" alt="chgrp command example">
+    <button class="back-btn" onclick="showDetails('')">Back</button>
+</div>
+
+<div id="ps-details" class="command-details">
+    <h2>ps Command</h2>
+    <p><strong>Description:</strong> The ps (process status) command in Linux displays information about currently running processes on the system. It provides a snapshot of active processes, including their IDs, CPU usage, memory usage, and more. It's a vital tool for system monitoring and process management.</p>
+    <p><strong>Usage:</strong> The ps (process status) command in Linux is used to display information about the currently running processes on a system. It provides details like process IDs (PIDs), CPU and memory usage, and the state of each process.</p>
+    <p><strong>Example:</strong></p>
+    <code class="example">ps aux</code>
+    <p>This lists all running processes on the system.</p>
+    <img src="ps.png" alt="ps command example">
+    <button class="back-btn" onclick="showDetails('')">Back</button>
+</div>
+
+<footer>
+    <p>&copy; 2025 Alwin Varghese. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
